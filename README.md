@@ -1,34 +1,8 @@
 ## Data Science / Machine Learning AVNET Internship Project
 ### Car Value Score Prediction Project Documentation
-##### In following points, we will discuss and explain logic, thoughts and results of each point. For each milestone we will mention which files are relevant and related
-Structure of files is as follows:
-project_name/
-│
-├── data/                     # Directory for datasets
-│   ├── clean/                # Contains preprocessed and cleaned dataset
-│   └── unclean/              # Contains raw, unprocessed dataset
-│
-├── graphs/                   # Directory for all visualizations
-│   ├── eda/                  # Visualizations generated during exploratory data analysis
-│   ├── confusion_matrices/   # Confusion matrices for model evaluation
-│   ├── feature_importances/  # Visualizations showing feature importance for various models
-│   └── other/                # Miscellaneous graphs or visualizations
-│
-├── models/                   # Saved models for each approach
-│   ├── decision_tree/        # Decision tree models (.joblib and .pkl)
-│   ├── knn/                  # K-Nearest Neighbors models (.joblib and .pkl)
-│   ├── logistic_regression/  # Logistic regression models (.joblib and .pkl)
-│   ├── naive_bayes/          # Naive Bayes models (.joblib and .pkl)
-│   ├── random_forest/        # Random forest models (.joblib and .pkl)
-│   └── svc/                  # Support Vector Classifier models (.joblib and .pkl)
-│
-├── notebooks/                # Jupyter notebooks for project milestones
-│   ├── data_preparation.ipynb       # Notebook for the second milestone
-│   ├── exploratory_data_analysis.ipynb  # Notebook for the first milestone
-│   └── model_training.ipynb         # Notebook for third and fourth milestones
-│
-├── requirements.txt          # File listing project dependencies
-
+###### Through the following points, we will discuss and explain logic, thoughts and results of this project. <br /> As agreed with the mentor, the project structure follows a logical organization of directories rather than milestone-based segmentation, reflecting best practices in real-world data science projects.
+#### Structure of the project (minor files excluded):
+<img src="https://github.com/user-attachments/assets/6735c3a4-ca91-4f77-932d-8b02ec97b180" alt="Screenshot 2024-12-17 005823" width="550px" />
 
 
 #### Problem Understanding and Exploratory Data Analysis
