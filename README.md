@@ -1,10 +1,14 @@
 ## Data Science / Machine Learning AVNET Internship Project
-### Car Value Score Prediction
+### Car Value Score Prediction Project Documentation
+###### Through the following points, we will discuss and explain logic, thoughts and results of this project. <br /> As agreed with the mentor, the project structure follows a logical organization of directories rather than milestone-based segmentation, reflecting best practices in real-world data science projects.
+#### Structure of the project (minor files excluded):
+<img src="https://github.com/user-attachments/assets/6735c3a4-ca91-4f77-932d-8b02ec97b180" alt="Screenshot 2024-12-17 005823" width="550px" />
 
-1. Problem Understanding and Exploratory Data Analysis
 
-2. Data Cleaning and Feature Engineering
+#### Problem Understanding and Exploratory Data Analysis
+In this milestone we done exploratory data analysis using several Python libraries
+#### Data Cleaning and Feature Engineering
 
-3. Model Development and Evaluation
+#### Model Development and Evaluation
 
-4. Visualization and Presentation
+#### Visualization and Presentation
