@@ -35,8 +35,7 @@
 - Dataset is in .csv format (car_dataset.csv) and information is converted into .md file so it can be interpreted as README file within /unclean directory.
 - Notebook (Jupyter) for exploratory data analysis is created in /notebooks folder (exploratory_data_analysis.ipynb)
 - Dataset is imported, basic information about dataset is printed.
-- Visualizations are created and saved into graphs/eda directory (eda - exploratory data analysis).
--- Types of visualizations are:
+- Visualizations are created and saved into graphs/eda directory (eda - exploratory data analysis). Types of visualizations are:
   - Merged count of attributes through classes graph (bar plot)
   - Merged proportion of attributes through classes graph (bar plot)
   - Separated count of attributes through classes graph (bar plot)
@@ -45,7 +44,7 @@
 - For data cleaning, corresponding Jupyter notebook is created in /notebooks directory (data_preparation.ipynb)
 - Dataset is imported and checked for null values or anomalies again.
 - Ordinal and Label encoding is applied to dataset
--- Several columns are renamed:
+- Several columns are renamed:
   - class_values => class_value
   - buying => price
   - persons => seats
@@ -55,25 +54,30 @@
 ##### Conclusion: 
 
 #### 3. Model Development and Evaluation
--- Several libraries and modules are imported and used:
- - pandas, numpy, matplotlib, seaborn
- - pickle, joblib, time, os
- - scikit-learn
--- Scikit-Learned is used to import the following:
-   - splitting data methods
-   - model training methods
-   - metrics
-   - hyperparameter tuning implementation methods
-   - visualization methods
--- Model configurations are declared for hyperparameter tuning. Following models are included:
- - Logistic Regression
- - Random Forest
- - Decision Tree
- - Naive Bayes
- - K-Nearest Neighbors (in the project referred as KNN)
- - Support Vector Classification (in the project referred as SVC)
+- Several libraries and modules are imported and used:
+  - pandas, numpy, matplotlib, seaborn
+  - pickle, joblib, time, os
+  - scikit-learn
+- Scikit-Learned is used to import the following:
+  - splitting data methods
+  - model training methods
+  - metrics
+  - hyperparameter tuning implementation methods
+  - visualization methods
+- Metrics are:
+  - f1 score
+  - accuracy
+  - precision
+  - recall
+- Model configurations are declared for hyperparameter tuning. Following models are included:
+  - Logistic Regression
+  - Random Forest
+  - Decision Tree
+  - Naive Bayes
+  - K-Nearest Neighbors (in the project referred as KNN)
+  - Support Vector Classification (in the project referred as SVC)
 - For each model configuration, distinct model is declared along with multiple parameters.
--- General purpose functions are declared, as follows:
+- General purpose functions are declared, as follows:
   - Plot confusion matrix
   - Plot feature importance
   - Plot decision tree structure
@@ -82,7 +86,29 @@
   - Evaluate all models
   - Apply hyperparameter tuning
   - Optimization of the model
-
+- Evaluation of all models is executed
+- Insights are generated through output report and visualizations
+- Report output for each model consists of the following:
+  - Saved models directory locations
+  - Model training time
+  - Training time estimation and metrics values
+  - Detailed classification report
+- Visualizations are:
+  - Confusion matrices
+  - Feature importace graphs
+  - Custom model visualizations (Decision Tree)
+- Visualizations for confusion matrices are saved in graphs/confusion_matrices
+- Visualizations for feature importance are saved in graphs/feature_importance
+- All models performance summary is displayed with best performed model labeled
+- Best model is optimized using hyperparameter tuning and report is generated along with visualizations
+- Insights on best model are as follows:
+  - Best parameters
+  - Best cross-validaiton score
+  - Optimization time required
+  - Saved optimized models location directories
+  - Optimized model performance using uppermentioned metrics
+  - Detailed classification report on optimized model
+  - Generating visualizations for optimized model
 
 
 ##### Conclusion: 
