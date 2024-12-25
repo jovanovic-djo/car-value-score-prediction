@@ -1,11 +1,11 @@
-## Data Science / Machine Learning AVNET Internship Project
+# Data Science AVNET Internship Project Documentation
 ###### Detailed project milestones guide is below brief overview
-### Car Value Score Prediction Project Documentation
-###### Through the following points, we will discuss and explain the logic, thoughts and results of this project. <br /> As agreed with the mentor, the project structure follows a logical organization of directories rather than milestone-based segmentation, reflecting best practices in real-world data science projects.
+### Car Value Score Prediction (Option B - Classification Problem)
+###### Through the following points, logic, thoughts and results of this project will be discussed and explained. <br /> As agreed with the mentor, the project structure follows a logical organization of directories rather than milestone-based segmentation, reflecting best practices in real-world data science projects.
 #### Structure of the project (minor files excluded):
 <img src="https://github.com/user-attachments/assets/6735c3a4-ca91-4f77-932d-8b02ec97b180" alt="Screenshot 2024-12-17 005823" width="560px" />
 
-### Brief Overview of the Approach
+## Brief Overview of the Approach
 #### Problem Understanding and Exploratory Data Analysis
 - In this milestone, exploratory data analysis is done using several Python libraries
 - Data had no missing values or inconsistencies
@@ -24,8 +24,9 @@
 - For each model, including the optimized one, visualizations are generated
 - A Confusion matrix is generated for every model
 - Feature importance is generated for several models
+- Note: Generation of the feature importance for some of the models was not reliable and suitable. Explanation is in the detailed guide.
 
-### Detailed Milestones Guide
+## Detailed Milestones Guide
 ###### The purpose of this guide is to highlight the approach, directories and files for each milestone. <br /> As mentioned, the structure of the project is not organized by milestones, but instead by intuitive and practical structure.
 #### 1. Problem Understanding and Exploratory Data Analysis
 - First step was to explore data files. Only usable files were dataset by itself and information about dataset.
@@ -111,8 +112,6 @@
  - For each model there is directory for its saved models
  - Two file formats are supported: .joblib and .pkl
  - Additional directory is generated for optimized models which are saved within it
-
-
 ##### Conclusion: 
 
 #### 4. Visualization and Presentation
@@ -126,13 +125,18 @@
   - confusion_matrices: Directory for storing confusion matrix graphs for each of mentioned models as a part of model evaluation process.
   - feature_importance: Directory for storing feature importance graphs for several models which purpose is to emphasize importance of each feature.
   - other: Miscellaneous graphs and visualizations that are not part of a bigger visualization group
+- Reasons behind selective feature importance generation:
+  - SVC: It supports feature importance for linear kernel through coef_ attribute, and it is not available for non linear kernels (rbf, poly, sigmoid)
+  - KNN: It is not suitable for direct feature importance (has no built in feature importance function). This is distance based algorithm which does not provide feature rankings.
+  - Naive Bayes: It also does not have direct feature importance mechanism. Class conditional probabilities could be evaluated, but not true feature importance.
 ##### Conclusion: 
 
 ##### Additional approaches directory: Contains notebook with an alternative approach, where all of the models would be hyperparameter tuned, compared and stored along with the corresponding visualizations.
 
 
 ### Potential Enhancements
-- Store functions in utils file from which they could be called and used, instead of storing them in notebooks.
-- Diverse types of visualizations for better coverage of different aspects of the results.
+- Store functions in one or multiple util files from which they could be called and used, instead of storing them in notebooks.
+- Additional diverse types of visualizations for better coverage of different aspects of the results.
 - Splitting data into 3 data subsets would be favorable for future projects (train, test, validate)
+- Write script to compose generated reports and valuable insights into distinct readable file
 
