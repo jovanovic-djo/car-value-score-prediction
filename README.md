@@ -28,18 +28,23 @@
 
 ## Detailed Milestones Guide
 ###### The purpose of this guide is to highlight the approach, directories and files for each milestone. <br /> As mentioned, the structure of the project is not organized by milestones, but instead by intuitive and practical structure.
-#### 1. Problem Understanding and Exploratory Data Analysis
+### 1. Problem Understanding and Exploratory Data Analysis
 - First step was to explore data files. Only usable files were dataset by itself and information about dataset.
 - Both instances of data are saved in data/unclean directory.
 - Dataset is in .csv format (car_dataset.csv) and information is converted into .md file so it can be interpreted as README file within /unclean directory.
 - Notebook (Jupyter) for exploratory data analysis is created in /notebooks folder (exploratory_data_analysis.ipynb)
-- Dataset is imported, and basic information about dataset is printed.
+- Dataset is imported, and basic information and details about dataset is printed.
 - Visualizations are created and saved into graphs/eda directory (eda - exploratory data analysis). Types of visualizations are:
-  - Merged count of attributes through classes graph (bar plot)
-  - Merged proportion of attributes through classes graph (bar plot)
-  - Separated count of attributes through classes graph (bar plot)
-##### Conclusion: 
-#### 2. Data Cleaning and Feature Engineering
+  - Merged count of attributes through classes graph (bar plot): For each attribute, its distinct values are counted and showed in 6 graphs, one for each feature, along with one additional graph which represent score (class_value) values count in dataset
+  - Merged proportion of attributes through classes graph (bar plot): Shows distribution of score values over features in proportion from 0-1. For each feature value, score occurrence is displayed on the bar
+  - Separated count of attributes through classes graph (bar plot): Plot with similar output as the previous one, but instead, it separates bars and displays count instead of proportion of the distribution
+  - Cramer's V (phi) correlation plot (heatmap): This visualization shows the strength of relationships between categorical variables, where darker colors indicate stronger correlations between features, helping identify which variables are most strongly related to the car's class value and to each other. Values range from 0 (no association) to 1 (perfect association), making it easy to spot the most influential features for predicting car classifications
+  - Parallel coordinates plot (parcoord): Each vertical axis represents a different feature, and each line crossing through these axes represents a single car instance, with the line color indicating its classification (unacceptable, acceptable, very good and good). This shows patterns across multiple features simultaneously which combinations typically lead to specific classifications
+##### Conclusion:
+###### Values are evenly distributed along all features, which means every feature has same total number of distinct values (example: safety values are evenly distributed into low, mid and high, with total count of 576 per mentioned value)
+###### Scores are uneven, and data samples for some score values (class_value = 'unacc') are drastically greater that other ones, which drives to conclusion that this dataset would need some enhacements in terms of additional data collection or better distribution of score values
+###### Visualizations that are created are suitable for showcasing most important insights in dataset structure and value distribution
+### 2. Data Cleaning and Feature Engineering
 - For data cleaning, corresponding Jupyter notebook is created in /notebooks directory (data_preparation.ipynb)
 - Dataset is imported and checked for null values or anomalies again.
 - Ordinal and Label encoding is applied to dataset
@@ -48,10 +53,12 @@
   - buying => price
   - persons => seats
 - Opinion is that additional features would not enhance results and would not be relevant, so my approach does not involve additional features.
-- Dataset is saved as .csv file into data/clean directory (ordinal_encoded.csv)
+- Dataset is saved as .csv file into data/clean directory (dataset.csv)
 - Regarding splitting dataset: this is done in model_training.ipynb file
 ##### Conclusion: 
-
+###### Dataset was almost usable and clean from the beginning, with small enhancements like renaming columns and encoding, it aquired its usable shape
+###### With the appliance of uppermentioned, dataset is succesfully prepared for splitting and further usage
+###### Note: Creation of new features was not relevant for favorable results
 #### 3. Model Development and Evaluation
 - Several libraries and modules are imported and used:
   - pandas, numpy, matplotlib, seaborn
@@ -112,7 +119,11 @@
  - For each model there is directory for its saved models
  - Two file formats are supported: .joblib and .pkl
  - Additional directory is generated for optimized models which are saved within it
-##### Conclusion: 
+##### Conclusion:
+###### Best model was Decision Tree by every metric. 
+###### Optimized feature importance graph showed that safety is the most important feature, it wins over the price by a glance.
+###### Best parameters for the Decision Tree are: {'class_weight': 'balanced', 'criterion': 'entropy', 'max_depth': None, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'splitter': 'best'}
+###### Naive Bayes had the worst performance of them all over every metric
 
 #### 4. Visualization and Presentation
 - Visualizations are stored in graphs directory under several sub-directories:
@@ -122,17 +133,15 @@
   - other
 - Explanation for purpose and content of each mentioned directory:
   - eda: Directory for storing visualizations of the first milestone. All visualizations for this directory are generated within notebooks/exploratory_data_analysis.ipynb
-  - confusion_matrices: Directory for storing confusion matrix graphs for each of mentioned models as a part of model evaluation process.
-  - feature_importance: Directory for storing feature importance graphs for several models which purpose is to emphasize importance of each feature.
+  - confusion_matrices: Directory for storing confusion matrix graphs for each of mentioned models as a part of model evaluation process
+  - feature_importance: Directory for storing feature importance graphs for several models which purpose is to emphasize importance of each feature
   - other: Miscellaneous graphs and visualizations that are not part of a bigger visualization group
 - Reasons behind selective feature importance generation:
   - SVC: It supports feature importance for linear kernel through coef_ attribute, and it is not available for non linear kernels (rbf, poly, sigmoid)
-  - KNN: It is not suitable for direct feature importance (has no built in feature importance function). This is distance based algorithm which does not provide feature rankings.
-  - Naive Bayes: It also does not have direct feature importance mechanism. Class conditional probabilities could be evaluated, but not true feature importance.
+  - KNN: It is not suitable for direct feature importance (has no built in feature importance function). This is distance based algorithm which does not provide feature rankings
+  - Naive Bayes: It also does not have direct feature importance mechanism. Class conditional probabilities could be evaluated, but not true feature importance
 ##### Conclusion: 
-
-##### Additional approaches directory: Contains notebook with an alternative approach, where all of the models would be hyperparameter tuned, compared and stored along with the corresponding visualizations.
-
+###### From the insights and all resulted visualizations, brief conclusion would be that there are several important features, besides that safety was the most important, maintenance and price are also important and should be considered, as they are affecting the final car value score the most
 
 ### Potential Enhancements
 - Store functions in one or multiple util files from which they could be called and used, instead of storing them in notebooks.
@@ -140,3 +149,4 @@
 - Splitting data into 3 data subsets would be favorable for future projects (train, test, validate)
 - Write script to compose generated reports and valuable insights into distinct readable file
 
+##### Additional approaches directory: Contains notebook with an alternative approach, where all of the models would be hyperparameter tuned, compared and stored along with the corresponding visualizations.
