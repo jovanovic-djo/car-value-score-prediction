@@ -1,4 +1,4 @@
-# Data Science AVNET Internship Project Documentation
+# Data Science / Machine Learning AVNET Graduate Program Project Documentation
 ###### Detailed project milestones guide is below brief overview
 ### Car Value Score Prediction (Option B - Classification Problem)
 ###### Through the following points, logic, thoughts and results of this project will be discussed and explained. <br /> As agreed with the mentor, the project structure follows a logical organization of directories rather than milestone-based segmentation, reflecting best practices in real-world data science projects.
